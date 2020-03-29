@@ -5,7 +5,7 @@
     <title>Home</title>
   </head>
   <body>
-    <?php include '../inc/nav.php'; ?>
+    <?php include '../inc/nav2.php'; ?>
 
     <!-- assignment page -->
     <div class="container-fluid ">
@@ -19,7 +19,6 @@
         <!-- assignment create panel -->
         <div class="col-lg-9 min-vh-100">
           <form method='POST' id='createForm' action="" class="w-50 shadow mx-auto p-5 my-5">
-            <input type="text" name="" id="assignment-name" class="form-control mb-2" placeholder="enter the name of assignment">
             <input type="number" name="" id="qNumber" class="form-control mb-2" placeholder="enter number of questions you want to create">
             <input type="button" value="Start Create" class="w-100" id="createBtn">
           </form>
@@ -38,7 +37,11 @@
         }
         let assignmentName = $('#assignment-name').value;
         let qNumber = Number($('#qNumber').val());
-        let qList = '';
+        let qList = `
+          <div class='form-group shadow p-3 mb-5'>
+            <input type="text" name="" id="assignment-name" class="form-control mb-2" placeholder="enter the name of assignment">
+            <input type="number" name="" id="total-score" class="form-control mb-2" placeholder="enter the total score of the assignment">
+          </div>`;
         for(let i = 1; i <= qNumber; i++) {
           qList += `
           <div class='form-group shadow p-3 mb-5'>
@@ -50,6 +53,7 @@
             <div>
               <input type="text" class='form-control mb-2' placeholder='enter question'>
               <input type="text" class='form-control mb-2' placeholder='enter answer'>
+              <input type="number" class='form-control mb-2' placeholder='enter score of this question'>
             </div>
           </div>`;
         }
@@ -72,7 +76,8 @@
               <option>Choice B</option>
               <option>Choice C</option>
               <option>Choice D</option>
-            </select>`)
+            </select>
+            <input type="number" class='form-control mb-2' placeholder='enter score of this question'>`)
         } else {
           $(option).next().empty();
           $(option).next().html(`
