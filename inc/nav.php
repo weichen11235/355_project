@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand bg-dark navbar-dark sticky-top">
+<nav class="navbar navbar-expand bg-dark navbar-dark fixed-top">
       <!-- Links -->
       <ul class="navbar-nav">
         <li class="nav-item">

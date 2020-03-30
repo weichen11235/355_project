@@ -6,7 +6,7 @@
 </head>
 <body>
   <?php include '../inc/nav2.php'; ?>  
-
+  
   
   
   <?php include '../inc/bjs.php'; ?>

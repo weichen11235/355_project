@@ -8,16 +8,35 @@
     <?php include '../inc/nav2.php'; ?>
 
     <!-- assignment page -->
-    <div class="container-fluid ">
+    <div class="container-fluid">
       <div class="row">
 
         <!-- assignment list panel-->
-        <div class="col-lg-3 min-vh-100 bg-secondary">
+        <div class="col-lg-3 vh-100 bg-secondary overflow-auto">
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
+          <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
           <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
         </div>
+        
 
         <!-- assignment create panel -->
-        <div class="col-lg-9 min-vh-100">
+        <div class="col-lg-9 vh-100 overflow-auto">
           <form method='POST' id='createForm' action="" class="w-50 shadow mx-auto p-5 my-5">
             <input type="number" name="" id="qNumber" class="form-control mb-2" placeholder="enter number of questions you want to create">
             <input type="button" value="Start Create" class="w-100" id="createBtn">
