@@ -1,3 +1,12 @@
+<?php    
+
+  session_start();
+  if (!isset($_SESSION["username"])) {
+    header("Location: login.php");
+    die;
+  }
+  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,12 +21,12 @@
       <div class="row">
 
         <!-- assignment list panel-->
-        <div class="col-lg-3 min-vh-100 bg-secondary">
+        <div class="col-lg-3 vh-100 bg-secondary overflow-auto">
           <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Assignment 1</a>
         </div>
 
         <!-- assignment create panel -->
-        <div class="col-lg-9 min-vh-100">
+        <div class="col-lg-9 vh-100 overflow-auto">
           <form method='POST' id='' action="" class="w-50 shadow mx-auto p-5 my-5">
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero debitis commodi corporis!</p>
             <input type="text" name="" id="assignment-name" class="form-control mb-2" placeholder="enter the answer">
