@@ -36,16 +36,16 @@
             $dbName = '355project';
 
             // Create connection
-            $GLOBALS['conn'] = new mysqli($servername, $dbUsername, $dbPassword, $dbName);
+            $conn = new mysqli($servername, $dbUsername, $dbPassword, $dbName);
             
             //Check connection
-            if ($GLOBALS['conn']->connect_error) {
-                die("Connection failed: " . $GLOBALS['conn']->connect_error);
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
             }
             $sql = "INSERT INTO users (LastName, FirstName, Title, Username, Password)
             VALUES ('$last_name', '$first_name', '$title', '$username', '$passwordHash')";
             
-            if ($GLOBALS['conn']->query($sql)) {
+            if ($conn->query($sql)) {
               header('Location: sign_up_respond.php');
               die;
             }
@@ -56,7 +56,7 @@
                 die("Error ($conn->errno) $conn->error");
             } 
             
-            $GLOBALS['conn']->close();
+            $conn->close();
           }
         ?>
         

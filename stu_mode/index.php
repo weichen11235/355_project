@@ -27,12 +27,12 @@
 
         <!-- assignment create panel -->
         <div class="col-lg-9 vh-100 overflow-auto">
-          <form method='POST' id='' action="" class="w-50 shadow mx-auto p-5 my-5">
+          <form method='post' id='' action="<? echo $_SERVER[PHP_SELF]; ?>" class="w-50 shadow mx-auto p-5 my-5">
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero debitis commodi corporis!</p>
             <input type="text" name="" id="assignment-name" class="form-control mb-2" placeholder="enter the answer">
             <input type="submit" value="Submit" class="w-100">
           </form>
-          <form method='POST' id='' action="" class="w-50 shadow mx-auto p-5 my-5">
+          <form method='POST' id='' action="<? echo $_SERVER[PHP_SELF]; ?>" class="w-50 shadow mx-auto p-5 my-5">
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero debitis commodi corporis!</p>
             <div class="form-check w-100 mb-4">
               <label class="form-check-label">
