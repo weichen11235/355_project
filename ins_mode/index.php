@@ -22,7 +22,7 @@
       <div class="row">
 
         <!-- assignment list panel-->
-        <div class="col-lg-3 vh-100 bg-secondary overflow-auto">
+        <div id='assignList' class="col-lg-3 vh-100 bg-secondary overflow-auto">
           <a href="index.php" class="text-white d-block text-center py-3 border-bottom border-white">Create New Assignment</a>
         </div>
         
@@ -33,54 +33,50 @@
             <input type="number" name="" id="qNumber" class="form-control mb-2" placeholder="enter number of questions you want to create">
             <input type="button" value="Start Create" class="w-100" id="createBtn">
           </form>
-          <div id='questionList' class='w-50 mx-auto'></div>
+          <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id='questionList' class='w-50 mx-auto' onsubmit="finishUp(this)"></form>
         </div>
 
       </div>
     </div>
 
     <?php include '../inc/bjs.php'; ?>
+    <script src="table.js"></script>
     <script>
-      function createTable(id){
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText)
-          }
-        };
-        xhttp.open("POST", "createDB.php", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("assignment_name="+$(id).prev().val());
-        
-      }
-     
+
       $('#createBtn').click(function() {
         if($('#questionList').children()){
           $('#questionList').empty();
         }
         
         let qNumber = Number($('#qNumber').val());
+
+        //enter assignment name
         let qList = `
-          <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class='form-group shadow p-3 mb-5'>
+          <div class='form-group shadow p-3 mb-5' onsubmit="createTable(this)">
             <input type="text" name="assignment_name" id="assignment-name" class="form-control mb-2" placeholder="enter the name of assignment (required)" required>
             <input type="button" value="Send" class="w-100" name="submit" onclick="createTable(this)">
-          </form>`;
+          </div>`;
+
+        //create question
         for(let i = 1; i <= qNumber; i++) {
           qList += `
-          <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class='form-group shadow p-3 mb-5'>
+          <div class='form-group shadow p-3 mb-5'>
             <p>Question ${i}</p>
             <select name="q_type" class="form-control mb-2" id="" onchange='changeOption(this)'>
-              <option value="fill_in">Create Fill-in-Blank Question</option>
+              <option value="fill_in" selected>Create Fill-in-Blank Question</option>
               <option value="multiple_choice">Create Multiple Choice Qestion</option> 
             </select>
             <div>
               <input type="text" name="question" class='form-control mb-2' placeholder='enter question' required>
               <input type="text" name="answer" class='form-control mb-2' placeholder='enter answer' required>
-              <input name="score" type="number" class='form-control mb-2' placeholder='enter score of this question'>
-            </div>
-            <input type="button" value="Send" class="w-100" name="submit" onclick="createTable(this)">
-          </form>
-          `;
+              <input name="score" type="number" class='form-control mb-2' placeholder='enter score of this question' required>
+            </div>`;
+            if(i === Number($('#qNumber').val())) {
+              qList += `<input id="finish" type="submit" value="Finish" class="w-100" name="submit"></div>`;
+            } else {
+              qList += `<input type="button" value="Send" class="w-100" name="submit" onclick="insertRecord(this)"></div>`;
+            }
+            
         }
         $('#questionList').append(qList);
       })
