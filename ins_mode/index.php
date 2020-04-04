@@ -37,5 +37,6 @@
     <?php include '../inc/bjs.php'; ?>
     <script src="table.js"></script>
     <script src="contentManipulate.js"></script>
+    
   </body>
 </html>

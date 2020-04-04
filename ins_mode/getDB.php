@@ -17,7 +17,7 @@
     
     $sql = "SELECT * FROM $assignment_name";
     $result = $conn->query($sql);
-    $content = "<form class='w-50 mx-auto mt-5'>";
+    $content = "<form class='w-50 mx-auto mt-5'><h3 class='text-center'>$assignment_name</h3>";
 
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()){
@@ -28,7 +28,7 @@
                       <input type='text' name='answer' class='form-control mb-2' value='$answer' disabled>
                     </div>";
       }
-      $content .= "</form>";
+      $content .= "<input type='button' value='Delete this assignment' class='w-100 btn btn-danger' id='deleteBtn' onclick='deleteAssignment(this)'></form>";
       echo $content;
     } else {
       echo "0 result";
