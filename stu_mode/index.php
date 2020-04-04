@@ -25,7 +25,7 @@
           <a href="#" class="text-white d-block text-center py-3 border-bottom border-white">Assignment 1</a>
         </div>
 
-        <!-- assignment create panel -->
+        <!-- questions panel -->
         <div class="col-lg-9 vh-100 overflow-auto">
           <form method='post' id='' action="<? echo $_SERVER[PHP_SELF]; ?>" class="w-50 shadow mx-auto p-5 my-5">
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero debitis commodi corporis!</p>

@@ -1,4 +1,6 @@
+//create a table after enter name of assignment
 function createTable(id){
+  $(id).attr('disabled', true);
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -10,6 +12,7 @@ function createTable(id){
   xhttp.send("assignment_name="+$(id).prev().val());
 }
 
+//insert record after send a question
 function insertRecord(id) {
   $(id).attr('disabled', true);
   if($($(id).parent().children()[2]).children().length === 3){
@@ -57,8 +60,39 @@ function insertRecord(id) {
   }
 }
 
+//send data and append a button
 function finishUp(id) {
-  insertRecord($('#finish'));
-  let assignName = $($(id).children()[0]).children()[0].value;
-  $('#assignList').append(`<a href="index.php" class="text-white d-block text-center py-3 border-bottom border-white">${assignName}</a>`)
+  insertRecord($(id));
+  let form = $(id).parents()[1];
+  let assignName = $($(form).children()[0]).children()[0].value;
+  storeToLocal(assignName);
+  $('#assignList').append(`<button type="button" class="btn btn-secondary d-block text-left w-100 p-3 rounded-0" onclick="getRecord(this)">${assignName}</button>`);
+}
+
+//store assignment name to local storage
+function storeToLocal(assignment_name){
+  let storage;
+  if(localStorage.getItem('nameContainer') === null){
+    storage = [];
+  }
+  else{
+    storage = JSON.parse(localStorage.getItem('nameContainer'));
+  }
+
+  storage.push(assignment_name);
+  localStorage.setItem('nameContainer', JSON.stringify(storage));
+
+}
+
+//get record from database when click assignment btn
+function getRecord(id){
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      $('#assignPanel').html(this.responseText);
+    }
+  };
+  xhttp.open("POST", "getDB.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("assignment_name="+id.innerText);
 }
