@@ -37,6 +37,94 @@
     <?php include '../inc/bjs.php'; ?>
     <script src="table.js"></script>
     <script src="contentManipulate.js"></script>
-    
+    <script>
+      //delete individual question
+      function qDelete(id){
+        let name = $($(id).parent().parent().parent()).children()[0].innerText;
+        let qID = $('#qID').text();
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText)
+          }
+        };
+        xhttp.open("POST", "delete_update.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(`assignment_name=${name}&qID=${qID}`);
+
+      //   let formChildren = Array.from($(id).parent().parent().parent().children());
+      //   if(formChildren.length === 3){
+      //     let assignList = Array.from($('#assignList').children())
+
+      //     let storage;
+      //     if(localStorage.getItem('nameContainer') === null){
+      //       storage = [];
+      //     }
+      //     else{
+      //       storage = JSON.parse(localStorage.getItem('nameContainer'));
+      //     }
+      //     storage.forEach(function(item, index){
+      //       if(item == name){
+      //         storage.splice(index, 1);
+      //       }
+      //     })
+      //     localStorage.setItem('nameContainer', JSON.stringify(storage));
+
+      //     assignList.forEach(function(btn){
+      //       if(btn.innerText === name){
+      //         btn.remove();
+      //       }
+      //     })
+      //     $('#assignPanel').empty();
+      //   } else{
+      //     id.parentElement.parentElement.remove();
+      //   }
+
+        
+      }
+
+      //update individual question
+      function qUpdate(id){
+        let inputContainer = Array.from($(id).parent().parent().children());
+        
+        if(inputContainer.length === 5){
+          let name = $($(id).parent().parent().parent()).children()[0].innerText;
+          let qID = $('#qID').text();
+          let question = inputContainer[1].value;
+          let answer = inputContainer[2].value;
+          let score= inputContainer[3].value;
+
+          let xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              console.log(this.responseText)
+            }
+          };
+          xhttp.open("POST", "delete_update.php", true);
+          xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          xhttp.send(`assignment_name=${name}&qID=${qID}&question=${question}&answer=${answer}&score=${score}&updateFillIn='yes'`);
+        }
+        else{
+          let name = $($(id).parent().parent().parent()).children()[0].innerText;
+          let qID = $('#qID').text();
+          let question = inputContainer[1].value;
+          let A = inputContainer[2].value;
+          let B = inputContainer[3].value;
+          let C = inputContainer[4].value;
+          let D = inputContainer[5].value;
+          let answer = inputContainer[6].value;
+          let score= inputContainer[7].value;
+          let xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              console.log(this.responseText)
+            }
+          };
+          xhttp.open("POST", "delete_update.php", true);
+          xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          xhttp.send(`assignment_name=${name}&qID=${qID}&question=${question}&choiceA=${A}&choiceB=${B}&choiceC=${C}&choiceD=${D}&answer=${answer}&score=${score}`);
+        }
+      }
+    </script>
   </body>
 </html>

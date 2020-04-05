@@ -1,4 +1,6 @@
-//delete assignment and record
+
+
+//delete whole assignment
 function deleteAssignment(id){
   let assignment_name = $(id).parent().children()[0].innerText;
 
@@ -39,7 +41,7 @@ function deleteAssignment(id){
 }    
 
 
-//create a table after enter name of assignment
+//create a table for assignment
 function createTable(id){
   $(id).attr('disabled', true);
   let xhttp = new XMLHttpRequest();
