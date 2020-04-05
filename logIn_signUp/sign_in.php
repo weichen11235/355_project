@@ -19,6 +19,7 @@
 
         <input type="password" name="password" id="password" class="form-control mb-2" placeholder="enter password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9]{8,}" required>
 
+        <?php include('../inc/connectDB.php'); ?>
         <?php
 
           // If POST then check submitted username and password
@@ -29,13 +30,6 @@
             $username = $_POST["username"];
             $password = $_POST["password"];
                 
-            // Get user's hashed password from the Users table
-            $servername = "localhost";
-            $dbUsername = "root";
-            $dbPassword = "Aa1005234677";
-            $dbName = '355project';
-
-            $conn = new mysqli($servername, $dbUsername, $dbPassword, $dbName);
             $sql = "SELECT Title, Username, Password FROM users WHERE Username='" . $conn->real_escape_string($username) . "'";
             $result = $conn->query($sql);
             if (!$result) {

@@ -52,6 +52,8 @@
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send(`assignment_name=${name}&qID=${qID}`);
 
+        id.parentElement.parentElement.remove();
+
       //   let formChildren = Array.from($(id).parent().parent().parent().children());
       //   if(formChildren.length === 3){
       //     let assignList = Array.from($('#assignList').children())

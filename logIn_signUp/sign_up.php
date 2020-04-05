@@ -21,6 +21,7 @@
 
         <input type="text" name="username" id="username" class="form-control mb-2" placeholder="create username" pattern="\w{5,}" title="at least 5 characters, numbers and letters only" required>
 
+        <?php include('../inc/connectDB.php'); ?>
         <?php
           if($_SERVER["REQUEST_METHOD"] == "POST"){
             $last_name = $_POST['last_name'];
@@ -30,18 +31,6 @@
             $passwordHash = password_hash($password, PASSWORD_BCRYPT);
             $title = $_POST['title'];
             
-            $servername = "localhost";
-            $dbUsername = "root";
-            $dbPassword = "Aa1005234677";
-            $dbName = '355project';
-
-            // Create connection
-            $conn = new mysqli($servername, $dbUsername, $dbPassword, $dbName);
-            
-            //Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
             $sql = "INSERT INTO users (LastName, FirstName, Title, Username, Password)
             VALUES ('$last_name', '$first_name', '$title', '$username', '$passwordHash')";
             
