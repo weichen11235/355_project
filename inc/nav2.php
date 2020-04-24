@@ -2,7 +2,7 @@
       <!-- Links -->
       <ul class="navbar-nav"> 
         <li class="nav-item">
-          <a class="nav-link" href="../login_signUp/sign_in.php">LogOut</a>
+          <a class="nav-link" href="../logIn_signUp/sign_in.php">LogOut</a>
         </li>
 
         <!-- Dropdown -->
@@ -22,10 +22,10 @@
           <a class="nav-link" target="_blank" href="mailto: winer897@gmail.com">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php if(substr($_SERVER['PHP_SELF'], 21) === 'index.php'){echo 'active';} ?>" href="index.php">Assignment</a>
+          <a class="nav-link <?php if(substr($_SERVER['PHP_SELF'], 26) === 'index.php'){echo 'active';} ?>" href="index.php">Assignment</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php if(substr($_SERVER['PHP_SELF'], 21) === 'grade.php'){echo 'active';} ?>" href="grade.php">Grade</a>
+          <a class="nav-link <?php if(substr($_SERVER['PHP_SELF'], 26) === 'help.php'){echo 'active';} ?>" href="help.php">Help</a>
         </li>
       </ul>
     </nav>

@@ -30,7 +30,7 @@
             $username = $_POST["username"];
             $password = $_POST["password"];
                 
-            $sql = "SELECT Title, Username, Password FROM users WHERE Username='" . $conn->real_escape_string($username) . "'";
+            $sql = "SELECT login, pwd, user_type FROM appuser WHERE login='" . $conn->real_escape_string($username) . "'";
             $result = $conn->query($sql);
             if (!$result) {
                 die("Error executing query: ($conn->errno) $conn->error");
@@ -41,10 +41,10 @@
             else {
                 $row = $result->fetch_assoc();
 
-                // See if submitted password matches the hash stored in the Users table    
-                if (password_verify($password, $row["Password"])) {
+                // See if submitted password matches the hash stored in the appuser table    
+                if (password_verify($password, $row["pwd"])) {
                   $_SESSION["username"] = $username;
-                  if($row["Title"] === "Student"){
+                  if($row["user_type"] === "S"){
                     header("Location: ../stu_mode/index.php");
                   } else{
                     header("Location: ../ins_mode/index.php");

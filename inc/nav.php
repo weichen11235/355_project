@@ -3,9 +3,9 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link 
-          <?php if($_SERVER['PHP_SELF'] == '/355Project/index.php'){echo 'active';} ?>" href="
+          <?php if($_SERVER['PHP_SELF'] == '/~chwe3577/cs355/index.php'){echo 'active';} ?>" href="
           <?php
-            if($_SERVER['PHP_SELF'] == '/355Project/index.php' || $_SERVER['PHP_SELF'] == '/355Project/about.php'){
+            if($_SERVER['PHP_SELF'] == '/~chwe3577/cs355/index.php' || $_SERVER['PHP_SELF'] == '/~chwe3577/cs355/about.php'){
               echo 'index.php';
             } 
             else{
@@ -31,10 +31,10 @@
 
         <li class="nav-item">
           <a class="nav-link 
-          <?php if($_SERVER['PHP_SELF'] == '/355Project/about.php'){echo 'active';} ?>" href="
+          <?php if($_SERVER['PHP_SELF'] == '/~chwe3577/cs355/about.php'){echo 'active';} ?>" href="
           <?php
-            if($_SERVER['PHP_SELF'] == '/355Project/index.php' || $_SERVER['PHP_SELF'] == '/355Project/about.php'){
-              echo 'about.php';
+            if($_SERVER['PHP_SELF'] == '/~chwe3577/cs355/index.php' || $_SERVER['PHP_SELF'] == '/~chwe3577/cs355/about.php'){
+              echo '/~chwe3577/cs355/about.php';
             } else{
               echo '../about.php';
             }

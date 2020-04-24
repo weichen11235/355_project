@@ -12,12 +12,15 @@
       <h1 class="text-white mb-3">Sign up</h1>
       <form action="<?php echo $_SERVER['PHP_SELF'] ;?>" method="post" class="text-center">
         <select class="form-control mb-2" id="sel1" name="title">
-          <option>Student</option>
-          <option>Instructor</option>
+          <option value="S">Student</option>
+          <option value="P">Instructor</option>
+          <option value="D">Developer</option>
         </select>
         <input type="text" name="last_name" id="last_name" class="form-control mb-2" placeholder="enter last name" required>
 
         <input type="text" name="first_name" id="first_name_name" class="form-control mb-2" placeholder="enter first name" required>
+
+        <input type="email" name="email" id="email" class="form-control mb-2" placeholder="enter email" required>
 
         <input type="text" name="username" id="username" class="form-control mb-2" placeholder="create username" pattern="\w{5,}" title="at least 5 characters, numbers and letters only" required>
 
@@ -26,13 +29,14 @@
           if($_SERVER["REQUEST_METHOD"] == "POST"){
             $last_name = $_POST['last_name'];
             $first_name = $_POST['first_name'];
+            $email = $_POST['email'];
             $username = $_POST['username'];
             $password = $_POST['password'];
             $passwordHash = password_hash($password, PASSWORD_BCRYPT);
             $title = $_POST['title'];
             
-            $sql = "INSERT INTO users (LastName, FirstName, Title, Username, Password)
-            VALUES ('$last_name', '$first_name', '$title', '$username', '$passwordHash')";
+            $sql = "INSERT INTO appuser (login, pwd, first_name, last_name, email, user_type)
+            VALUES ('$username', '$passwordHash', '$first_name', '$last_name', '$email', '$title')";
             
             if ($conn->query($sql)) {
               header('Location: sign_up_respond.php');

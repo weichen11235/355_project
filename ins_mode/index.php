@@ -27,7 +27,8 @@
         <div id="assignPanel" class="col-lg-9 vh-100 overflow-auto">
           <form  id='createForm' class="w-50 shadow mx-auto p-5 my-5">
             <input type="number" name="" id="qNumber" class="form-control mb-2" placeholder="enter number of questions you want to create">
-            <input type="button" value="Start Create" class="w-100" id="createBtn" onclick="startCreate()">
+            <input type="text" name="title" id="title" class="form-control mb-2" placeholder="enter assignment name">
+            <input type="button" value="Start Create" class="w-100" id="createBtn" onclick="startCreate(this)">
           </form>
           <form  id='questionList' class='w-50 mx-auto'></form>
         </div>
