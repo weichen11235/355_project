@@ -1,24 +1,11 @@
-//append assignment btn when load the page
-// document.addEventListener('DOMContentLoaded', loadBtn);
-// function loadBtn() {
-//   let storage;
-//   if(localStorage.getItem('nameContainer') === null){
-//     storage = [];
-//   }
-//   else{
-//     storage = JSON.parse(localStorage.getItem('nameContainer'));
-//   }
-//   storage.forEach(function(name){
-//     $('#assignList').append(`<button type="button" class="btn btn-secondary d-block text-left w-100 p-3 rounded-0" onclick="getRecord(this)">${name}</button>`);
-//   })
-  
-// }
+
 //click cerate assignment btn to add assignment
 function createAssignment(){
   $('#assignPanel').html(`
     <form  id='createForm' class="w-50 shadow mx-auto p-5 my-5">
       <input type="number" name="" id="qNumber" class="form-control mb-2" placeholder="enter number of questions you want to create">
-      <input type="button" value="Start Create" class="w-100" id="createBtn" onclick="startCreate()">
+      <input type="text" name="title" id="title" class="form-control mb-2" placeholder="enter assignment name">
+      <input type="button" value="Start Create" class="w-100" id="createBtn" onclick="startCreate(this)">
     </form>
     <form id='questionList' class='w-50 mx-auto'></form>`);
 }
