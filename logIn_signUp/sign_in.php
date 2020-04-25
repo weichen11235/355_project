@@ -44,6 +44,7 @@
                 // See if submitted password matches the hash stored in the appuser table    
                 if (password_verify($password, $row["pwd"])) {
                   $_SESSION["username"] = $username;
+                  $_SESSION["type"] = $row["user_type"];
                   if($row["user_type"] === "S"){
                     header("Location: ../stu_mode/index.php");
                   } else{
